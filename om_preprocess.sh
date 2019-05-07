@@ -16,10 +16,11 @@ strindex() {
   [[ "$x" = "$1" ]] && echo -1 || echo "${#x}"
 }
 
-data_dir=/mindhive/evlab/u/Shared/SUBJECTS
+data_dir=/mindhive/evlab/u/Shared/SUBJECTS/
 suffix=_PL2017
 dicom_suffix=_dicoms
 subject_id=$(awk 'BEGIN{ RS = "" ; FS = "\n" }{print $SLURM_ARRAY_TASK_ID}' subjects.txt)
+echo subject_id
 mkdir "$data_dir$subject_id$suffix"
 analysis_dir="$data_dir$subject_id$suffix"
 dicom_dir="${a:$(strindex $a "FED"):$(strindex $a "_3T")-$(strindex $a "FED")}$dicom_suffix"
