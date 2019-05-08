@@ -19,6 +19,3 @@ strindex() {
 data_dir=/mindhive/evlab/u/Shared/SUBJECTS/
 suffix=_PL2017
 dicom_suffix=_dicoms
-echo $SLURM_ARRAY_TASK_ID
-subject_id=$(awk -v var="$SLURM_ARRAY_TASK_ID" 'BEGIN{ RS = "" ; FS = "\n" }{print $var}' subjects.txt)
-echo $subject_id
