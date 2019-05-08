@@ -11,10 +11,7 @@
 #SBATCH --output=om_fmri_preprocess_%j.out
 #SBATCH --error=om_fmri_preprocess_%j.err
 
-strindex() {
-  x="${1%%$2*}"
-  [[ "$x" = "$1" ]] && echo -1 || echo "${#x}"
-}
+
 
 data_dir=/mindhive/evlab/u/Shared/SUBJECTS/
 suffix=_PL2017

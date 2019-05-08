@@ -12,3 +12,9 @@ quit;"
 echo $SLURM_ARRAY_TASK_ID
 subject_id=$(awk -v var="$SLURM_ARRAY_TASK_ID" 'BEGIN{ RS = "" ; FS = "\n" }{print $var}' subjects.txt)
 echo $subject_id
+
+
+strindex() {
+  x="${1%%$2*}"
+  [[ "$x" = "$1" ]] && echo -1 || echo "${#x}"
+}
